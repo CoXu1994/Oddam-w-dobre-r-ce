@@ -1,0 +1,12 @@
+@import "./settings/fonts";
+
+* {
+    font-family: $font-base;
+    box-sizing: border-box;
+}
+
+.container {
+    margin-inline: auto; 
+    width: 1440px;
+    position: relative;
+}

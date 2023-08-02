@@ -8,7 +8,7 @@ import HomeContact from "./HomeContact";
 
 function Home() {
     return (
-        <>
+        <div className="container">
             <Navigation />
             <HomeMainSection />
             <HomeThreeColumns />
@@ -16,7 +16,7 @@ function Home() {
             <HomeAboutUs />
             <HomeWhoWeHelp />
             <HomeContact />
-        </>
+        </div>
     )
 }
 

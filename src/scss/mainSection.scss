@@ -1,0 +1,64 @@
+@import "./settings/colors";
+
+
+
+.main {
+    width: 1440px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &__image {
+        margin-top: 20px;
+        background-image: url("../assets/Home-Hero-Image.jpg");
+        background-size: cover;
+        background-position: right -25px bottom ;
+        width: 620px;
+        height: 700px;    
+    }
+    &__box {
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-right: 130px;
+    }
+    &__btn {
+        padding: 13px 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+        border: 0.75px solid $color-base;
+
+        & .btn__text {
+            display: block;
+            width:170px;
+            text-align: center;
+            font-size: 26px;
+            line-height: 34px;
+            color: $color-base;
+        }
+    }
+}
+
+.box {
+    &__title {
+        margin-top:60px;
+        text-align: center;
+        font-size: 30px;
+        margin-bottom: 15px;
+        line-height: 50px;
+    }
+    &__buttons {
+        margin-top: 35px;
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+    }
+}
+
+.decoration {
+    width: 210px;
+}
+

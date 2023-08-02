@@ -1,8 +1,10 @@
-@import "../../normalize.css";
+@import "./settings/normalize.scss";
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;1,300&family=Open+Sans:wght@300;400;600&display=swap');
 @import "./settings/fonts";
 @import './settings/colors';
-
-body {
-    font-family: $font-base;
-}
+@import "./common.scss";
+@import "./navigation.scss";
+@import "./mainSection.scss";
+@import "./threeColumns.scss";
+@import "./simpleSteps.scss";
+@import "./aboutUs.scss";

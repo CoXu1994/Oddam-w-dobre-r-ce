@@ -1,0 +1,57 @@
+@import "./settings/colors";
+.simpleSteps {
+    color: $color-base;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__title {
+        margin: 0;
+        margin-top: 55px;
+        margin-bottom: 25px;
+    }
+    &__box {
+        width: 100%;
+        padding: 50px;
+        margin-top: 34px;
+        margin-bottom: 35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 60px;
+        background-color: $bgc-gray;
+    }
+}
+
+.step {
+    &__box {
+        height: 200px;
+        padding-top: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content:flex-start;
+        align-items: center;
+        text-align: center;
+    }
+    &__image {
+        width: 69px;
+        height: 69px;
+    }
+    &__title {
+        margin-top: 8px;
+        margin-bottom: 8px;
+        width: 120px;
+        &::after {
+            content: "";
+            display: block;
+            width: 70px;
+            height: 1px;
+            background-color: $color-base;
+            margin-top: 8px;
+            margin-top: 8px;
+            margin-inline: auto;
+        }
+    }
+    &__text {
+        width: 170px;
+    }
+}
