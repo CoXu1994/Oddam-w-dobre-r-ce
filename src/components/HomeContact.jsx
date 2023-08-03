@@ -31,7 +31,7 @@ function HomeContact() {
             </div>
             <div className="footer">
                 <span className="footer__copyrights">Copyright by Coders Lab</span>
-                <div className="footer__social">
+                <div className="footer___social">
                     <img className="fb" src="/src/assets/Facebook.svg" alt="facebook" />
                     <img className="insta" src="/src/assets/Instagram.svg" alt="instagram" />
                 </div>

@@ -1,0 +1,33 @@
+@import "./settings/colors";
+
+.log {
+    padding-top: 200px;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &__form {
+        background-color: $bgc-gray;
+        padding: 40px 68px 60px 68px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    &__title {
+        text-align: center;
+        width: 280px;
+    }
+    &__options {
+        margin-top: 50px;
+        display: flex;
+        gap: 180px;
+    }
+}
+
+.log__form .form__box .form__label {
+    width: 210px;
+}
+.log__form .form__box .form__input {
+    width: 210px;
+}
