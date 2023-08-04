@@ -2,151 +2,194 @@ import { useState } from "react";
 
 function HomeWhoWeHelp() {
     const [type, setType] = useState("fundations");
-    function listItemTemplate(arr) {
 
-        if (arr == "fundations") {
-            return (
-                
-                <div className="whoWeHelp__box">
-                    <p className="box__text">
-                         W naszej bazie znajdziesz listę zweryfikowanych Fundacji, z którymi współpracujemy. Możesz sprawdzić czym się zajmują, komu pomagają i czego potrzebują.
-                    </p>
-                    <div className="box__list">
-                        <div className="item">
-                            <div className="item__left">
-                                <span className="item__title">Fundacja "Dbam o Zdrowie"</span>
-                                <span classname="item__description">Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej.</span>
+    const [currentPage, setCurrentPage] = useState(1);
+    const LastIndex = currentPage * 3;
+    const FirstIndex = LastIndex - 3;
+
+    const fundations = [
+        {
+            id: 1,
+            title: "Dbam o zdrowie",
+            description: "Pomoc osobom znajdującym się w trudnej sytuacji życiowej",
+            items: ["ubrania", "jedzenie", "sprzęt AGD", "meble", "zabawki"]
+        },
+        {
+            id: 2,
+            title: "Dla dzieci",
+            description: "Pomoc dzieciom z ubogich rodzin.",
+            items: ["ubrania","meble", "zabawki"]
+        },
+        {
+            id: 3,
+            title: "Bez domu",
+            description: "Pomoc dla osób nie posiadających miejsca zamieszkania",
+            items: ["ubrania", "jedzenie", "ciepłe koce"]
+        },
+        {
+            id: 4,
+            title: "Lorem nr 1",
+            description: "Lorem ipsum trele morele heuehe asdiasxz",
+            items: ["lorem", "ipsum", "dores", "leuten", "kuafens"]
+        },
+        {
+            id: 5,
+            title: "Lorem nr 2",
+            description: "Impasum koten margon stifesa magensuf lureach.",
+            items: ["bumsasw","kutraza", "lurfen"]
+        },
+        {
+            id: 6,
+            title: "Lorem nr 3",
+            description: "Patala monetar lubear montes koutea lama",
+            items: ["zaukfef", "zasdafsf", "lofyal"]
+        },
+        {
+            id: 7,
+            title: "Ipsum nr 1",
+            description: "Patala monetar lubear montes koutea lama",
+            items: ["kuafens", "lorem", "dores", "ubrania", "jedzenie", "ciepłe koce"]
+        },
+        {
+            id: 8,
+            title: "Ipsum nr 2",
+            description: "Lorem ipsum trele morele heuehe asdiasxz",
+            items: ["ubrania","meble", "zabawki"]
+        },
+        {
+            id: 9,
+            title: "Ipsum nr 3",
+            description: "Pomoc osobom znajdującym się w trudnej sytuacji życiowej",
+            items: ["lorem", "ipsum", "dores", "leuten", "kuafens"]
+        },
+        
+    ]
+    const organizations = [
+        {
+            id: 1,
+            title: "Lorem Ipsum 1",
+            description: "Quis varius quam quisque id diam vel quam elementum pulvinar.",
+            items: ["Egestas", "sed", "tempus"]
+        },
+        {
+            id: 2,
+            title: "Lorem Ipsum 2",
+            description: "Hendrerit gravida rutrum quisque non tellus orci ac auctor augue.",
+            items: ["Ut", "aliquam", "purus", "sit", "amet"]
+        },
+        {
+            id: 3,
+            title: "Lorem Ipsum 3",
+            description: "Scelerisque in dictum non consectetur a erat nam.",
+            items: ["Mi", "quis", "hendrerit", "dolor"]
+        },
+        {
+            id: 4,
+            title: "Lorem Ipsum 4",
+            description: "Hendrerit gravida rutrum quisque non tellus orci ac auctor augue.",
+            items: ["Ut", "aliquam", "purus", "sit", "amet"]
+        },
+        {
+            id: 5,
+            title: "Lorem Ipsum 5",
+            description: "Quis varius quam quisque id diam vel quam elementum pulvinar.",
+            items: ["Mi", "quis", "hendrerit", "dolor"]
+        },
+        {
+            id: 6,
+            title: "Lorem Ipsum 6",
+            description: "Scelerisque in dictum non consectetur a erat nam.",
+            items: ["Egestas", "sed", "tempus"]
+        },
+
+           
+    ]
+    const local = [
+        {
+            id: 1,
+            title: "Lorem Ipsum 1",
+            description: "Quis varius quam quisque id diam vel quam elementum pulvinar.",
+            items: ["Egestas", "sed", "tempus"]
+        },
+        {
+            id: 2,
+            title: "Lorem Ipsum 2",
+            description: "Hendrerit gravida rutrum quisque non tellus orci ac auctor augue.",
+            items: ["Ut", "aliquam", "purus", "sit", "amet"]
+        },
+        {
+            id: 3,
+            title: "Lorem Ipsum 3",
+            description: "Scelerisque in dictum non consectetur a erat nam.",
+            items: ["Mi", "quis", "hendrerit", "dolor"]
+        },
+    ]
+    
+    function listItemTemplate(type) {
+
+        let text;
+        let arr = [];
+        if (type == "fundations") {
+            text = "W naszej bazie znajdziesz listę zweryfikowanych Fundacji, z którymi współpracujemy. Możesz sprawdzić czym się zajmują, komu pomagają i czego potrzebują."
+            arr = fundations;
+        }
+        if (type == "organizations") {
+            text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation."
+            arr = organizations;
+        }
+        if (type == "local") {
+            text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation."
+            arr = local;
+        }
+        let pagesTotal = Math.ceil(arr.length / 3)
+        let pages = [...Array(pagesTotal + 1).keys()].slice(1);
+        let visibleItems = arr.slice(FirstIndex, LastIndex)
+    
+        return (
+            <div className="whoWeHelp__box">
+                <p className="box__text">
+                    {text}
+                </p>
+                <div className="box__list">
+                    {visibleItems?.map((obj) => {
+                        const {id,title,description,items} = obj;   
+                        return (
+                            <div key={id} className="item">
+                                <div className="item__left">
+                                    <span className="item__title">Zbiórka “{title}”</span>
+                                    <span className="item__description">{description}</span>
+                                </div>
+                                <div className="item__right">
+                                    <span className="item__list">{items.join(", ")}</span> 
+                                </div>
                             </div>
-                            <div className="item__right">
-                                <span className="item__list">ubrania, jedzenie, sprzęt AGD, meble, zabawki</span> 
-                            </div>
-                        </div>
-                        <div className="item">
-                            <div className="item__left">
-                                <span className="item__title">Fundacja "Dla dzieci"</span>
-                                <span classname="item__description">Cel i misja: Pomoc dzieciom z ubogich rodzin..</span>
-                            </div>
-                            <div className="item__right">
-                                <span className="item__list">ubrania, meble, zabawki</span> 
-                            </div>
-                        </div>
-                        <div className="item">
-                            <div className="item__left">
-                                <span className="item__title">Fundacja “Bez domu”</span>
-                                <span classname="item__description">Cel i misja: Pomoc dla osób nie posiadających miejsca zamieszkania.</span>
-                            </div>
-                            <div className="item__right">
-                                <span className="item__list">ubrania, jedzenie, ciepłe koce</span> 
-                            </div>
-                        </div>    
-                    </div>
+                        )                           
+                    })}        
+                </div>
+
+                {arr?.length > 3 && (
                     <div className="pages">
-                        <div className="pages__page">1</div>
-                        <div className="pages__page">2</div>
-                        <div className="pages__page">3</div>
+                        {pages.map((page) => 
+                        <div className={currentPage == page ? "active" : "pages__page"} key={page} onClick={() => setCurrentPage(page)} > {page} </div> )}
                     </div>
+                    )}
+                    
                 </div>
             )
         }
-
-        if (arr == "organizations") {
-            return (
-                
-                <div className="whoWeHelp__box">
-                    <p className="box__text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
-                    </p>
-                    <div className="box__list">
-                        <div className="item">
-                            <div className="item__left">
-                                <span className="item__title">Organizacja “Lorem Ipsum 1”</span>
-                                <span classname="item__description">Quis varius quam quisque id diam vel quam elementum pulvinar.</span>
-                            </div>
-                            <div className="item__right">
-                                <span className="item__list">Egestas, sed, tempus</span> 
-                            </div>
-                        </div>
-                        <div className="item">
-                            <div className="item__left">
-                                <span className="item__title">Organizacja “Lorem Ipsum 2”</span>
-                                <span classname="item__description">Hendrerit gravida rutrum quisque non tellus orci ac auctor augue.</span>
-                            </div>
-                            <div className="item__right">
-                                <span className="item__list">Ut, aliquam, purus, sit, amet</span> 
-                            </div>
-                        </div>
-                        <div className="item">
-                            <div className="item__left">
-                                <span className="item__title">Organizacja “Lorem Ipsum 3”</span>
-                                <span classname="item__description">Scelerisque in dictum non consectetur a erat nam.</span>
-                            </div>
-                            <div className="item__right">
-                                <span className="item__list">Mi, quis, hendrerit, dolor</span> 
-                            </div>
-                        </div>    
-                    </div>
-                    <div className="pages">
-                        <div className="pages__page">1</div>
-                        <div className="pages__page">2</div>
-                        <div className="pages__page">3</div>
-                    </div>
-                </div>
-            )
-        }
-
-        if (arr == "local") {
-            return (
-                
-                <div className="whoWeHelp__box">
-                    <p className="box__text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
-                    </p>
-                    <div className="box__list">
-                        <div className="item">
-                            <div className="item__left">
-                                <span className="item__title">Zbiórka “Lorem Ipsum 1”</span>
-                                <span classname="item__description">Quis varius quam quisque id diam vel quam elementum pulvinar.</span>
-                            </div>
-                            <div className="item__right">
-                                <span className="item__list">Egestas, sed, tempus</span> 
-                            </div>
-                        </div>
-                        <div className="item">
-                            <div className="item__left">
-                                <span className="item__title">Zbiórka “Lorem Ipsum 2”</span>
-                                <span classname="item__description">Hendrerit gravida rutrum quisque non tellus orci ac auctor augue.</span>
-                            </div>
-                            <div className="item__right">
-                                <span className="item__list">Ut, aliquam, purus, sit, amet</span> 
-                            </div>
-                        </div>
-                        <div className="item">
-                            <div className="item__left">
-                                <span className="item__title">Zbiórka “Lorem Ipsum 3”</span>
-                                <span classname="item__description">Scelerisque in dictum non consectetur a erat nam.</span>
-                            </div>
-                            <div className="item__right">
-                                <span className="item__list">Mi, quis, hendrerit, dolor</span> 
-                            </div>
-                        </div>    
-                    </div>
-                    <div className="pages">
-                        <div className="pages__page">1</div>
-                        <div className="pages__page">2</div>
-                        <div className="pages__page">3</div>
-                    </div>
-                </div>
-            )
-        }
+    
+    function handleArrayChange(type) {
+        setType(type);
+        setCurrentPage(1);
     }
     return (
-        <section className="whoWeHelp">
+        <section className="whoWeHelp" id="help">
             <h2 className="whoWeHelp__title">Komu pomagamy?</h2>
             <img className="decoration" src="/src/assets/Decoration.svg" alt="decoration" />
             <div className="whoWeHelp__buttons">
-                <button className="main__btn" onClick={() => setType("fundations")}>Fundacjom</button>
-                <button className="main__btn" onClick={() => setType("organizations")}>Organizacjom<br/> pozarządowym</button>
-                <button className="main__btn" onClick={() => setType("local")}>Lokalnym<br/>zbiórkom</button>
+                <button className="main__btn small" onClick={() => handleArrayChange("fundations")}><span className="btn__text small">Fundacjom</span></button>
+                <button className="main__btn small" onClick={() => handleArrayChange("organizations")}><span className="btn__text small">Organizacjom<br/> pozarządowym</span></button>
+                <button className="main__btn small" onClick={() => handleArrayChange("local")}><span className="btn__text small">Lokalnym<br/>zbiórkom</span></button>
             </div>
             {listItemTemplate(type)}
            

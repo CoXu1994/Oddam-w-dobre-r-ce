@@ -1,6 +1,6 @@
 function HomeContact() {
     return (
-        <section className="contact">
+        <section className="contact" id="contact">
             <div className="contact__box">
                 <h2 className="contact__title">Skontaktuj się z nami</h2>
                 <img className="decoration" src="/src/assets/Decoration.svg" alt="decoration" />
@@ -31,7 +31,7 @@ function HomeContact() {
             </div>
             <div className="footer">
                 <span className="footer__copyrights">Copyright by Coders Lab</span>
-                <div className="footer___social">
+                <div className="footer__social">
                     <img className="fb" src="/src/assets/Facebook.svg" alt="facebook" />
                     <img className="insta" src="/src/assets/Instagram.svg" alt="instagram" />
                 </div>

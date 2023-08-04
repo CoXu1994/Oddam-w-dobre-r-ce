@@ -1,6 +1,6 @@
 function HomeAboutUs() {
     return (
-        <section className="aboutUs">
+        <section className="aboutUs" id="about">
             <div className="aboutUs__info">
                 <h2 className="info__title">O nas</h2>
                 <img className="decoration" src="/src/assets/Decoration.svg" alt="decoration" />

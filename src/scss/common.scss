@@ -1,12 +1,32 @@
 @import "./settings/fonts";
+@import "./settings/colors";
 
 * {
-    font-family: $font-base;
     box-sizing: border-box;
+}
+
+body {
+    font-family: $font-base;
+    font-weight: 400;
+    color: $color-base;
 }
 
 .container {
     margin-inline: auto; 
     width: 1440px;
     position: relative;
+}
+
+.link {
+    text-decoration: none;
+}
+
+.decoration {
+    width: 210px;
+    color: $color-decoration;
+}
+
+.active {
+    border: 1px solid $color-underline;
+    padding: 13px 15px;
 }

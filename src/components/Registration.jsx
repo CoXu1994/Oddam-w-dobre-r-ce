@@ -1,4 +1,5 @@
 import Navigation from './Navigation';
+import { Link } from 'react-router-dom';
 
 
 function Registration() {
@@ -24,7 +25,9 @@ function Registration() {
                     
                 </form>
                 <div className="log__options">
+                <Link className="link" to="/logowanie" >
                     <button className="main__btn" >Zaloguj się</button>
+                </Link>
                     <button className="main__btn" >Załóż konto</button>
                 </div>
             </section>

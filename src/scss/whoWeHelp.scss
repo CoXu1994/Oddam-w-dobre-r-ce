@@ -1,4 +1,5 @@
 @import "./settings/colors";
+@import "./settings/fonts";
 
 
 .whoWeHelp {
@@ -11,6 +12,8 @@
         margin: 0;
         margin-top: 55px;
         margin-bottom: 25px;
+        letter-spacing: -0.76px;
+        font-size: 30px;
     }
     &__buttons {
         margin-top: 40px;
@@ -39,7 +42,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    border-bottom: 1px solid $color-base;
+    border-bottom: 1px solid $color-underline;
     &:last-child {
         border-bottom: none;
     }
@@ -53,17 +56,41 @@
     &__right {
         margin-top: 30px;
     }
+    &__title {
+        font-family: $font-alt;
+        font-size: 20px;
+    }
+    &__description {
+        font-family: $font-alt;
+        font-style: italic;
+    }
+    &__list {
+        font-family: $font-alt;
+    }
 }
 
 .pages {
     margin-top: 63px;
     display: flex;
     justify-content: center;
+    font-size: 18px;
     &__page {
         padding: 13px 15px;
         border: 1px solid transparent;
         &:hover {
-            border-color: $color-base;
+            border-color: $color-underline;
         }
     }
+}
+
+
+.btn__text.small {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 18px;  
+}
+
+.main__btn.small {
+    padding: 0;
+    padding: 23px 5px;
 }
