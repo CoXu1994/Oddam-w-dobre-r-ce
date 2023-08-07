@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import decoration from "../assets/Decoration.svg";
 function HomeWhoWeHelp() {
     const [type, setType] = useState("fundations");
 
@@ -185,7 +185,7 @@ function HomeWhoWeHelp() {
     return (
         <section className="whoWeHelp" id="help">
             <h2 className="whoWeHelp__title">Komu pomagamy?</h2>
-            <img className="decoration" src="/src/assets/Decoration.svg" alt="decoration" />
+            <img className="decoration" src={decoration} alt="decoration" />
             <div className="whoWeHelp__buttons">
                 <button className="main__btn small" onClick={() => handleArrayChange("fundations")}><span className="btn__text small">Fundacjom</span></button>
                 <button className="main__btn small" onClick={() => handleArrayChange("organizations")}><span className="btn__text small">Organizacjom<br/> pozarządowym</span></button>

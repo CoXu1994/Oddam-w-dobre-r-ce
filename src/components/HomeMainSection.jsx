@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-
+import decoration from "../assets/Decoration.svg"
 
 function HomeMainSection() {
     return (
@@ -7,7 +7,7 @@ function HomeMainSection() {
             <div className="main__image"></div>
             <div className="main__box">
                 <h2 className="box__title">Zacznij pomagać!<br></br>Oddaj niechciane rzeczy w zaufane ręce</h2>
-                <img className="decoration" src="/src/assets/Decoration.svg" alt="decoration" />
+                <img className="decoration" src={decoration} alt="decoration" />
                 <div className="box__buttons">
 
                     <Link className="link" to="/logowanie">
