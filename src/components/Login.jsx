@@ -1,7 +1,13 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Navigation from "./Navigation";
+import decoration from '../assets/Decoration.svg';
 import { useFormik } from "formik";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { useState } from "react";
+import {auth} from "../firebase";
 function LogIn() {
+     let navigate = useNavigate();
+     const [currentUser, setCurrentUser] = useState();
     const validate = values => {
         const errors = {};
         if (!values.email) {
@@ -25,17 +31,24 @@ function LogIn() {
           password: '',
         },
         validate,
-        onSubmit: values => {
+        onSubmit: async values => {
             alert(JSON.stringify(values, null, 2));
+            signInWithEmailAndPassword(auth, values.email, values.password)
+              .then((UserCredential) => setCurrentUser(UserCredential.user))
+              .catch((error) => {
+                  const errorCode = error.code;
+                  const errorMessage = error.message;
+                  console.log(errorCode, errorMessage);
+              });
         },
-      });
-
+    });
+      console.log(currentUser)
     return (
         <div className="container">
-            <Navigation />
+            <Navigation currentUser={currentUser} setCurrentUser={setCurrentUser}/>
             <section className="log">
                 <h2 className="log__title">Zaloguj się</h2>
-                <img className="decoration" src="/src/assets/Decoration.svg" alt="decoration" />
+                <img className="decoration" src= {decoration} alt="decoration" />
                 <form 
                     className="form" 
                     onSubmit={formik.handleSubmit}

@@ -1,9 +1,15 @@
 import Navigation from './Navigation';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useFormik } from "formik";
-
+import auth from "../firebase";
+import {
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword
+} from "firebase/auth";
+import { useState } from 'react';
 function Registration() {
-
+    let navigate = useNavigate();
+    const [currentUser, setCurrentUser] = useState();
     const validate = values => {
         const errors = {};
         if (!values.email) {
@@ -38,12 +44,30 @@ function Registration() {
         validate,
         onSubmit: values => {
             alert(JSON.stringify(values, null, 2));
+            createUserWithEmailAndPassword(auth, values.email, values.password)
+            .then(() => {
+                signInWithEmailAndPassword(auth, values.email, values.password)
+                    .then((userCredential) => {
+                        setCurrentUser(userCredential);
+                        navigate("/");
+                    })
+                    .catch((error) => {
+                        const errorCode = error.code;
+                        const errorMessage = error.message;
+                        console.log(errorCode, errorMessage);
+                    });
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorCode, errorMessage);
+            });
         },
       });
     
     return(
         <div className="container">
-            <Navigation />
+            <Navigation currentUser={currentUser}/>
             <section className="log">
                 <h2 className="log__title">Załóż konto</h2>
                 <img className="decoration" src="/src/assets/Decoration.svg" alt="decoration" />

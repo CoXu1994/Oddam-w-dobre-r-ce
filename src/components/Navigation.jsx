@@ -1,16 +1,33 @@
 import { Link } from 'react-router-dom';
 import * as Scroll from "react-scroll";
-function Navigation() {
-    
+import { signOut } from "firebase/auth";
+import auth from "../firebase";
+function Navigation({currentUser, setCurrentUser}) {  
+    console.log(currentUser)
     return (
         <section className= "nav">
             <div className= "nav__log">
-                <Link to= "/logowanie" >
-                    <button className= "btn__login" > Zaloguj </button>
-                </Link>
-                <Link to= "/rejestracja" >
-                    <button className= "btn__login" > Załóż konto </button>
-                </Link>
+                {!currentUser ? (
+                    <>
+                        <Link to= "/logowanie" >
+                            <button className= "btn__login" > Zaloguj </button>
+                        </Link>
+                        <Link to= "/rejestracja" >
+                            <button className= "btn__login" > Załóż konto </button>
+                        </Link>
+                    </>
+                ): (
+                    <>
+                        <div className="nav__user">Witaj! :</div>
+                        <button className= "btn__login"> Oddaj rzeczy </button>
+                        <Link to= "/wylogowano" >
+                            <button className= "btn__login" onClick = {signOut(auth)
+}> Wyloguj </button>
+                        </Link>
+                    </>
+                )}
+                
+                
             </div>
             <ul className= "nav__menu">
                 <Scroll.Link 
