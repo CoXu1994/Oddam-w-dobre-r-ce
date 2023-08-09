@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import * as Scroll from "react-scroll";
 import { signOut } from "firebase/auth";
 import auth from "../firebase";
-function Navigation({currentUser, setCurrentUser}) {  
+function Navigation({currentUser}) {  
     console.log(currentUser)
     return (
         <section className= "nav">
@@ -18,11 +18,12 @@ function Navigation({currentUser, setCurrentUser}) {
                     </>
                 ): (
                     <>
-                        <div className="nav__user">Witaj! :</div>
-                        <button className= "btn__login"> Oddaj rzeczy </button>
+                        <div className="nav__user">Witaj! :{currentUser.email}</div>
+                        <Link to= "/oddaj-rzeczy" >
+                            <button className= "btn__login"> Oddaj rzeczy </button>
+                        </Link>
                         <Link to= "/wylogowano" >
-                            <button className= "btn__login" onClick = {signOut(auth)
-}> Wyloguj </button>
+                            <button className= "btn__login"> Wyloguj </button>
                         </Link>
                     </>
                 )}

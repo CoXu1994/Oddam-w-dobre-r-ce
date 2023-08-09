@@ -1,4 +1,6 @@
 import { useFormik } from "formik";
+import fb from "../assets/Facebook.svg";
+import insta from "../assets/Instagram.svg";
 
 function HomeContact() {
     const validate = values => {
@@ -119,8 +121,8 @@ function HomeContact() {
             <div className="footer">
                 <span className="footer__copyrights">Copyright by Coders Lab</span>
                 <div className="footer__social">
-                    <img className="fb" src="/src/assets/Facebook.svg" alt="facebook" />
-                    <img className="insta" src="/src/assets/Instagram.svg" alt="instagram" />
+                    <img className="fb" src={fb} alt="facebook" />
+                    <img className="insta" src={insta} alt="instagram" />
                 </div>
             </div>
         </section>

@@ -7,7 +7,7 @@ import { useState } from "react";
 import {auth} from "../firebase";
 function LogIn() {
      let navigate = useNavigate();
-     const [currentUser, setCurrentUser] = useState();
+     const [currentUser, setCurrentUser] = useState(null);
     const validate = values => {
         const errors = {};
         if (!values.email) {
@@ -31,21 +31,24 @@ function LogIn() {
           password: '',
         },
         validate,
-        onSubmit: async values => {
+        onSubmit: values => {
             alert(JSON.stringify(values, null, 2));
             signInWithEmailAndPassword(auth, values.email, values.password)
-              .then((UserCredential) => setCurrentUser(UserCredential.user))
+              .then((UserCredential) => {
+                setCurrentUser(UserCredential.user)
+              })
               .catch((error) => {
                   const errorCode = error.code;
                   const errorMessage = error.message;
                   console.log(errorCode, errorMessage);
               });
+            
         },
     });
       console.log(currentUser)
     return (
         <div className="container">
-            <Navigation currentUser={currentUser} setCurrentUser={setCurrentUser}/>
+            <Navigation currentUser={currentUser}/>
             <section className="log">
                 <h2 className="log__title">Zaloguj się</h2>
                 <img className="decoration" src= {decoration} alt="decoration" />
