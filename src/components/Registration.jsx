@@ -7,9 +7,10 @@ import {
     signInWithEmailAndPassword
 } from "firebase/auth";
 import { useState } from 'react';
+import { useAuth } from '../context/AuthContext';
 function Registration() {
     let navigate = useNavigate();
-    const [currentUser, setCurrentUser] = useState();
+    const { singUp } = useAuth();
     const validate = values => {
         const errors = {};
         if (!values.email) {

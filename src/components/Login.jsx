@@ -7,7 +7,6 @@ import { useState } from "react";
 import {auth} from "../firebase";
 function LogIn() {
      let navigate = useNavigate();
-     const [currentUser, setCurrentUser] = useState(null);
     const validate = values => {
         const errors = {};
         if (!values.email) {
