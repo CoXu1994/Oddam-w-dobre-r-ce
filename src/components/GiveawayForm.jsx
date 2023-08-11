@@ -9,6 +9,17 @@ import Part4 from "./GiveAwayForm/GiveAwayPart4";
 
 function GiveAwayThings() {
     const [currentPage, setCurrentPage] = useState(1);
+    const [type, setType] = useState("");
+    const [bags, setBags] = useState("");
+    const [localization, setLocalization] = useState("");
+    const [helpGroups, setHelpGroups] = useState([]);
+    const [street, setStreet] = useState("");
+    const [city, setCity] = useState("");
+    const [postCode, setPostCode] = useState("");
+    const [phone, setPhone] = useState("");
+    const [date, setDate] = useState("");
+    const [time, setTime] = useState("");
+    const [note, setNote] = useState("");
 
     function changePage(direction) {
         if(direction == "prev") {
@@ -20,6 +31,19 @@ function GiveAwayThings() {
             setCurrentPage(nextPage);
         }
     }
+    
+    console.log("Rzeczy: ", type);
+    console.log("Liczba worków: ", bags);
+    console.log("Miejsce: ", localization);
+    console.log("Dla kogo pomoc: ", helpGroups);
+    console.log("Ulica: ", street);
+    console.log("Miasto: ", city);
+    console.log("Kod pocztowy: ", postCode);
+    console.log("Telefon: ", phone);
+    console.log("Godzina: ", time);
+    console.log("Data: ", date);
+    console.log("Notatka: ", note);
+
 
     return (
             <div className="container">
@@ -73,15 +97,23 @@ function GiveAwayThings() {
                             {currentPage == 4 && 
                             "Podaj adres oraz termin odbioru rzeczy."}
                         </p>
-
                     </div>
                 </section>
 
                 <section className="giveAway__form">
-                    { currentPage == 1 && <Part1 /> }
-                    { currentPage == 2 && <Part2 /> }
-                    { currentPage == 3 && <Part3 /> }
-                    { currentPage == 4 && <Part4 /> }
+                    { currentPage == 1 && <Part1 setType={setType}/> }
+                    { currentPage == 2 && <Part2 setBags={setBags}/> }
+                    { currentPage == 3 && <Part3 setLocalization={setLocalization} setHelpGroups={setHelpGroups}/> }
+                    { currentPage == 4 && 
+                        <Part4 
+                            setStreet={setStreet}
+                            setCity={setCity} 
+                            setPostCode={setPostCode} 
+                            setPhone={setPhone}
+                            setDate={setDate}
+                            setTime={setTime}
+                            setNote={setNote}
+                        /> }
                     
                     
 
