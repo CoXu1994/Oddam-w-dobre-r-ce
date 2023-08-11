@@ -2,10 +2,10 @@ import { Link, useNavigate } from "react-router-dom";
 import Navigation from "./Navigation";
 import decoration from '../assets/Decoration.svg';
 import { useFormik } from "formik";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { useState } from "react";
+import { useAuth } from '../context/AuthContext';
 import {auth} from "../firebase";
 function LogIn() {
+  const { signIn } = useAuth();
      let navigate = useNavigate();
     const validate = values => {
         const errors = {};
@@ -32,9 +32,10 @@ function LogIn() {
         validate,
         onSubmit: values => {
             alert(JSON.stringify(values, null, 2));
-            signInWithEmailAndPassword(auth, values.email, values.password)
-              .then((UserCredential) => {
-                setCurrentUser(UserCredential.user)
+            signIn(values.email, values.password)
+              .then((userCredential) => {
+                console.log(userCredential);
+                navigate("/")
               })
               .catch((error) => {
                   const errorCode = error.code;
@@ -44,10 +45,9 @@ function LogIn() {
             
         },
     });
-      console.log(currentUser)
     return (
         <div className="container">
-            <Navigation currentUser={currentUser}/>
+            <Navigation />
             <section className="log">
                 <h2 className="log__title">Zaloguj się</h2>
                 <img className="decoration" src= {decoration} alt="decoration" />

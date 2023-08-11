@@ -1,9 +1,14 @@
 import { Link } from 'react-router-dom';
 import * as Scroll from "react-scroll";
-import { signOut } from "firebase/auth";
-import auth from "../firebase";
-function Navigation({currentUser}) {  
-    console.log(currentUser)
+import { useAuth } from '../context/AuthContext';
+
+function Navigation() {  
+    const { currentUser, logOut } = useAuth();
+    
+    async function handleLogOut() {
+        await logOut();
+    }
+
     return (
         <section className= "nav">
             <div className= "nav__log">
@@ -23,7 +28,7 @@ function Navigation({currentUser}) {
                             <button className= "btn__login"> Oddaj rzeczy </button>
                         </Link>
                         <Link to= "/wylogowano" >
-                            <button className= "btn__login"> Wyloguj </button>
+                            <button className= "btn__login" onClick={handleLogOut}> Wyloguj </button>
                         </Link>
                     </>
                 )}

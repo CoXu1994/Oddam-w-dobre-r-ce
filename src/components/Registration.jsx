@@ -1,16 +1,13 @@
 import Navigation from './Navigation';
 import { Link, useNavigate } from 'react-router-dom';
 import { useFormik } from "formik";
-import auth from "../firebase";
-import {
-    createUserWithEmailAndPassword,
-    signInWithEmailAndPassword
-} from "firebase/auth";
-import { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
+
 function Registration() {
+
     let navigate = useNavigate();
-    const { singUp } = useAuth();
+    const { createUser, logIn } = useAuth();
+
     const validate = values => {
         const errors = {};
         if (!values.email) {
@@ -34,7 +31,7 @@ function Registration() {
 
       
         return errors;
-      };
+    };
 
     const formik = useFormik({
         initialValues: {
@@ -45,11 +42,11 @@ function Registration() {
         validate,
         onSubmit: values => {
             alert(JSON.stringify(values, null, 2));
-            createUserWithEmailAndPassword(auth, values.email, values.password)
+            createUser( values.email, values.password)
             .then(() => {
-                signInWithEmailAndPassword(auth, values.email, values.password)
+                logIn( values.email, values.password)
                     .then((userCredential) => {
-                        setCurrentUser(userCredential);
+                        console.log(userCredential);
                         navigate("/");
                     })
                     .catch((error) => {
@@ -68,7 +65,7 @@ function Registration() {
     
     return(
         <div className="container">
-            <Navigation currentUser={currentUser}/>
+            <Navigation />
             <section className="log">
                 <h2 className="log__title">Załóż konto</h2>
                 <img className="decoration" src="/src/assets/Decoration.svg" alt="decoration" />
