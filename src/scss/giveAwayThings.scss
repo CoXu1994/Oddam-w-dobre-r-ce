@@ -138,6 +138,7 @@
     background-position: right bottom 30%;
     background-size: cover;
     height: 760px;
+    position: relative;
     &__content {
         margin-left: 100px;
         padding-top: 40px;
@@ -169,9 +170,9 @@
         
     }
     &__btns {
-        margin-top: 200px;
-        margin-left: 100px;
-        
+        position: absolute;
+        bottom: 50px;
+        left: 100px;
     }  
     &__btn {
         width: 120px;
@@ -180,9 +181,6 @@
             margin-right: 40px;
         }
     }
-}
-.giveAway__form__content.dnone {
-    display: none;
 }
 .specific {
     display: flex;
@@ -217,4 +215,98 @@
         justify-content: space-between;
         gap: 30px;
     }
+}
+
+
+// Part 5
+
+.giveAway__summary {
+    margin-left: 100px;
+    padding-top: 60px;
+    margin-bottom: -150px;
+}
+
+.summary {
+    &__title {
+        margin: 0;
+        font-weight: 600;
+        font-size: 30px;
+        margin-bottom: 50px;
+    }
+    &__header {
+        font-size: 18px;
+        font-weight: 600;
+       
+    }
+    &__text {
+        font-size: 18px;
+        display: block;
+        margin-top: 20px;
+        &.key {
+            width: 90px;
+        }
+        &.post {
+            margin-top: 30px;
+        }
+        &.phone {
+            margin-top: 40px;
+        }  
+    }
+    &__group {
+        margin-bottom: 40px;
+        & > .summary__text::before {
+            content: "";
+            display: inline-block;
+            background-image: url("../assets/Icon-1.svg");
+            background-size: cover;
+            width: 34px;
+            height: 34px;
+            transform: translateY(25%);
+            margin-right: 20px;
+        }
+        
+        & > .summary__text:last-child::before {
+            content: "";
+            display: inline-block;
+            background-image: url("../assets/Icon-4.svg");
+            background-size: cover;
+            width: 34px;
+            height: 34px;
+            transform: translateY(25%);
+            margin-right: 20px;
+        }
+    }
+    &__bigGroup {
+        display: flex;
+        width: 700px;
+        justify-content: flex-start;
+        gap: 60px;
+    }
+    &__box {
+        display: flex;
+        width: 300px;
+        gap: 20px;
+    }
+}
+
+// Page6 
+
+.giveAway__finish {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 40%;
+    left: 10%;
+}
+
+.finish__text {
+    font-size: 30px;
+    width: 600px;
+    text-align: center;
+}
+.finish__text.second__line {
+    width: 500px;
+    margin-bottom: 30px;
 }

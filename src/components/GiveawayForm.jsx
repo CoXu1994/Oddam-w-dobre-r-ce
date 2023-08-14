@@ -6,6 +6,8 @@ import Part1 from "./GiveAwayForm/GiveAwayPart1";
 import Part2 from "./GiveAwayForm/GiveAwayPart2";
 import Part3 from "./GiveAwayForm/GiveAwayPart3";
 import Part4 from "./GiveAwayForm/GiveAwayPart4";
+import Part5_Summary from "./GiveAwayForm/GiveAwayPart5_Summary";
+import Part6 from "./GiveAwayForm/GiveAwayPart6";
 
 function GiveAwayThings() {
     const [currentPage, setCurrentPage] = useState(1);
@@ -32,19 +34,6 @@ function GiveAwayThings() {
         }
     }
     
-    console.log("Rzeczy: ", type);
-    console.log("Liczba worków: ", bags);
-    console.log("Miejsce: ", localization);
-    console.log("Dla kogo pomoc: ", helpGroups);
-    console.log("Ulica: ", street);
-    console.log("Miasto: ", city);
-    console.log("Kod pocztowy: ", postCode);
-    console.log("Telefon: ", phone);
-    console.log("Godzina: ", time);
-    console.log("Data: ", date);
-    console.log("Notatka: ", note);
-
-
     return (
             <div className="container">
                 <Navigation />
@@ -83,22 +72,23 @@ function GiveAwayThings() {
                         </div>
                     </div>
                 </section>
-                
-                <section className="orangeBar">
-                    <div className="orangeBar__content">
-                        <span className="orangeBar__title">Ważne</span>
-                        <p className="orangeBar__text">
-                            {currentPage == 1 && 
-                            "Uzupełnij szczegóły dotyczące Twoich rzeczy. Dzięki temu będziemy wiedzieć komu najlepiej je przekazać."}
-                            {currentPage == 2 && 
-                            "Wszystkie rzeczy do oddania zapakuj w 60l worki. Dokładną instrukcję jak poprawnie spakować rzeczy znajdziesz TUTAJ."}
-                            {currentPage == 3 && 
-                            "Jeśli wiesz komu chcesz pomóc, możesz wpisać nazwę tej organizacji w wyszukiwarce. Możesz też filtrować organizacje po ich lokalizacji bądź celu ich pomocy."}
-                            {currentPage == 4 && 
-                            "Podaj adres oraz termin odbioru rzeczy."}
-                        </p>
-                    </div>
-                </section>
+                {currentPage < 4 && (
+                    <section className="orangeBar">
+                        <div className="orangeBar__content">
+                            <span className="orangeBar__title">Ważne</span>
+                            <p className="orangeBar__text">
+                                {currentPage == 1 && 
+                                "Uzupełnij szczegóły dotyczące Twoich rzeczy. Dzięki temu będziemy wiedzieć komu najlepiej je przekazać."}
+                                {currentPage == 2 && 
+                                "Wszystkie rzeczy do oddania zapakuj w 60l worki. Dokładną instrukcję jak poprawnie spakować rzeczy znajdziesz TUTAJ."}
+                                {currentPage == 3 && 
+                                "Jeśli wiesz komu chcesz pomóc, możesz wpisać nazwę tej organizacji w wyszukiwarce. Możesz też filtrować organizacje po ich lokalizacji bądź celu ich pomocy."}
+                                {currentPage == 4 && 
+                                "Podaj adres oraz termin odbioru rzeczy."}
+                            </p>
+                        </div>
+                    </section>
+                )}
 
                 <section className="giveAway__form">
                     { currentPage == 1 && <Part1 setType={setType}/> }
@@ -114,12 +104,27 @@ function GiveAwayThings() {
                             setTime={setTime}
                             setNote={setNote}
                         /> }
-                    
+                    { currentPage == 5 && 
+                        <Part5_Summary 
+                            type = { type }
+                            bags = { bags }
+                            localization = { localization }
+                            helpGroups = { helpGroups }
+                            street = { street }
+                            city = { city }
+                            postCode = { postCode }
+                            phone = { phone }
+                            date = { date }
+                            time = { time }
+                            note = { note }
+                        />}
+                    { currentPage == 6 && <Part6 />}
                     
 
                     <div className="giveAway__form__btns">
-                        {currentPage > 1 && <button className="giveAway__form__btn" onClick ={() => changePage("prev")}>Wstecz</button>}
-                        {currentPage < 4 && <button className="giveAway__form__btn" onClick ={() => changePage("next")}>Dalej</button>}
+                        {currentPage > 1 && currentPage < 6 && <button className="giveAway__form__btn" onClick ={() => changePage("prev")}>Wstecz</button>}
+                        {currentPage < 5 && <button className="giveAway__form__btn" onClick ={() => changePage("next")}>Dalej</button>}
+                        {currentPage == 5 && <button className="giveAway__form__btn"onClick ={() => changePage("next")}>Potwierdzam</button>}
                     </div>
 
                 </section>
