@@ -27,9 +27,10 @@ function Part4(props) {
                                 <input type="text" id="phone" name="phone" onChange={(e) => setPhone(e.target.value)}/>
                             </div>
                         </div>
-    
-                        <div className="date">
-                            <span className="date__title">Termin odbioru: </span>
+                    </div>
+                    <div>
+                        <span className="date__title">Termin odbioru: </span>
+                        <div className="date">  
                             <div className="date__row">
                                 <label htmlFor="date">Data</label>
                                 <input type="date" id="date" name="date" min="2023-08-11" max="2032-01-01" onChange={(e) => setDate(e.target.value)}/>    
@@ -39,7 +40,10 @@ function Part4(props) {
                                 <input type="time" id="time" name="time" min="00:00" max="24:00" required onChange={(e) => setTime(e.target.value)}/>
                             </div>
                             <div className="date__row">
-                                <label  htmlFor="note">Uwagi dla kuriera</label>
+                                <label  htmlFor="note">
+                                    <span> Uwagi </span>
+                                    <span> dla kuriera </span>
+                                </label>
                                 <textarea className="note" id="note" name="note" rows="4" cols="50" onChange={(e) => setNote(e.target.value)}></textarea>     
                             </div>
                         </div>

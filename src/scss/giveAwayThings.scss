@@ -73,7 +73,6 @@
 .box__title.giveAway {
     width: 620px;
 }
-
 .giveAway {
     &__title {
         font-weight: 300;
@@ -132,6 +131,9 @@
         font-size: 16px;
     }
 }
+
+//form
+
 .giveAway__form {
     background-image: url("../assets/Background-Form.jpg");
     background-repeat: no-repeat;
@@ -148,18 +150,29 @@
         font-size: 18px;
     }
     &__title {
-        font-size: 30px;
+        font-weight: 600;
+        font-size: 26px;
         margin-top: 70px;
         margin-bottom: 30px;
     } 
     &__label {
+        margin-bottom: 20px;
         font-size: 20px;
         font-weight: 300;
-        margin-left: 20px;
+        position: relative;
+        display: block;
+        padding-left: 70px;
         &__select {
             margin-left: 0;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
 
         }
+        &.custom {
+            cursor: pointer;
+        }
+        
     }
     &__box {
         display: flex;
@@ -167,6 +180,7 @@
         justify-content: flex-start;
         align-items: flex-start;
         gap: 30px;
+        margin-top: 40px;
         
     }
     &__btns {
@@ -185,12 +199,32 @@
 .specific {
     display: flex;
     flex-direction: column;
+    margin-top: 20px;
+    gap: 20px;
+    &__label {
+        font-weight: 600;
+        font-size: 20px;
+    }
+    &__input {
+        background-color: transparent;
+        border: 1px solid $color-base;
+        height: 30px;
+        padding: 5px 10px;
+    }
+    
     
 }
 .reciver {
     display: flex;
     flex-wrap: wrap ;
     width: 500px;
+    gap: 20px;
+    &__title {
+        font-weight: 600;
+        margin: 0;
+        margin-top: 20px;
+        font-size: 20px;
+    }
 }
 
 .note {
@@ -199,21 +233,67 @@
     height: 100px;
 }
 .formContainer {
+    margin-top: 20px;
     display: flex;
-    gap: 20px;
+    gap: 100px;
 }
 .address {
+    margin-top: 20px;
     &__row {
         display: flex;
         justify-content: space-between;
-        gap: 30px;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 15px;
+        & label {
+            font-weight: 300;
+            width: 90px;
+        }
+        & input {
+            width: 150px;
+            height: 25px;
+            padding: 2px 5px;
+            background-color: transparent;
+            border: 1px solid $color-base;
+        }
+    }
+    &__title {
+        font-weight: 600;
+        font-size: 18px;
     }
 }
 .date {
+    margin-top: 20px;
     &__row {
         display: flex;
         justify-content: space-between;
-        gap: 30px;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 15px;
+        & label {
+            font-weight: 300;
+            display: flex;
+            flex-direction: column;
+        }
+        & input {
+            width: 150px;
+            height: 25px;
+            padding: 2px 5px;
+            background-color: transparent;
+            border: 1px solid $color-base;
+            appearance: none;
+        }
+        & textarea {
+            width: 150px;
+            height: 70px;
+            padding: 2px 5px;
+            background-color: transparent;
+            border: 1px solid $color-base;
+        }
+    }
+    &__title {
+        font-weight: 600;
+        font-size: 18px;
     }
 }
 
@@ -309,4 +389,62 @@
 .finish__text.second__line {
     width: 500px;
     margin-bottom: 30px;
+}
+
+//custom checkboxes
+
+.checkbox {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+    &:checked ~ .checkbox__custom {
+        background-color: $bgc-bar;
+    }
+    &:checked + .label__button {
+        background-color: $bgc-bar;
+    }
+    &__custom {
+        display: block;
+        width: 35px;
+        height: 35px;
+        background: transparent;
+        position: absolute;
+        top: -5px;
+        left: 0;
+        border: 0.75px solid $color-base;
+    }
+}
+
+.select__box {
+    display: flex;
+    gap: 20px;
+}
+
+select {
+    background-color: transparent;
+    appearance: none;
+    width: 200px;
+    height: 30px;
+    padding: 5px;
+    padding-left: 10px;
+    background-image: url("../assets/Icon-Arrow-Down.svg");
+    background-repeat: no-repeat;
+    background-size: 30px 30px;
+    background-position: right;
+    &:focus {
+        background-image: url("../assets/Icon-Arrow-Up.svg");
+    }
+}
+option.default {
+     display: none;
+}
+
+.label__button {
+    padding: 10px 20px;
+    border: 0.75px solid $color-base;
+    font-weight: 300;
+    color: #000;
+    cursor:pointer;
 }

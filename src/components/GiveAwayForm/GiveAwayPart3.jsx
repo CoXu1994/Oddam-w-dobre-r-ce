@@ -1,4 +1,3 @@
-import { useState } from "react";
 
 function Part3({setLocalization, setHelpGroups}) {
     
@@ -20,9 +19,9 @@ function Part3({setLocalization, setHelpGroups}) {
                 <h2 className="giveAway__form__title">Lokalizacja: </h2>
 
                 <form className="giveAway__form__box">
-                    <div>
+                    <div className="select__">
                         <select name="localization" id="localization" onChange={(e) => setLocalization(e.target.value)}>
-                            <option value=""> - Wybierz - </option>
+                            <option value="" className="default"> — wybierz — </option>
                             <option value="poznan">Poznań</option>
                             <option value="warsaw">Warszawa</option>
                             <option value="cracow">Kraków</option>
@@ -30,36 +29,75 @@ function Part3({setLocalization, setHelpGroups}) {
                             <option value="katowice">Katowice</option>
                         </select>   
                     </div>
-
-                    <div className="reciver">
-                        <div>
-                            <input type="checkbox" id="children" name="helpGroups" value="dzieciom" onClick={(e) => handleHelpGroup(e)}/>
-                            <label htmlFor="children">dzieciom</label>
-                        </div> 
-                        <div>
-                            <input type="checkbox" id="singleMother" name="helpGroups" value="samotnym matkom" onClick={(e) => handleHelpGroup(e)}/>
-                            <label htmlFor="singleMother">Samotnym matkom</label>
-                        </div>    
-                        <div>
-                            <input type="checkbox" id="homeless" name="helpGroups" value="bezdomnym" onClick={(e) => handleHelpGroup(e)}/>
-                            <label htmlFor="homeless">Bezdomnym</label>
-                        </div>    
-                        <div>
-                            <input type="checkbox" id="disabled" name="helpGroups"value="niepełnosprawnym" onClick={(e) => handleHelpGroup(e)}/>
-                            <label htmlFor="disabled">Niepełnosprawnym</label>
-                        </div>    
-                        <div>
-                            <input type="checkbox" id="elder" name="helpGroups" value="osobom starszym" onClick={(e) => handleHelpGroup(e)}/>
-                            <label htmlFor="elder">Osobom starszym</label>
-                        </div>        
+                    <h3 className="reciver__title"> Komu chcesz pomagać ? </h3>
+                    <div className="reciver">    
+                            <input
+                                className="checkbox" 
+                                type="checkbox" 
+                                id="children" 
+                                name="helpGroups" 
+                                value="dzieciom" 
+                                onClick={(e) => handleHelpGroup(e)}
+                            />
+                            <label className="label__button" htmlFor="children"> dzieciom </label>
+                        
+                            <input
+                                className="checkbox" 
+                                type="checkbox" 
+                                id="singleMother" 
+                                name="helpGroups" 
+                                value="samotnym matkom" 
+                                onClick={(e) => handleHelpGroup(e)}
+                            />
+                            <label className="label__button" htmlFor="singleMother"> samotnym matkom </label>
+                        
+                            <input 
+                                className="checkbox"
+                                type="checkbox" 
+                                id="homeless" 
+                                name="helpGroups" 
+                                value="bezdomnym" 
+                                onClick={(e) => handleHelpGroup(e)}
+                            />
+                            <label className="label__button" htmlFor="homeless"> bezdomnym </label>
+                                 
+                            <input 
+                                className="checkbox"
+                                type="checkbox" 
+                                id="disabled" 
+                                name="helpGroups"
+                                value="niepełnosprawnym" 
+                                onClick={(e) => handleHelpGroup(e)}
+                            /> 
+                            <label className="label__button" htmlFor="disabled"> niepełnosprawnym </label>
+                        
+                            <input 
+                                className="checkbox"
+                                type="checkbox" 
+                                id="elder" 
+                                name="helpGroups" 
+                                value="osobom starszym"
+                                onClick={(e) => handleHelpGroup(e)}
+                            />
+                            <label className="label__button" htmlFor="elder"> osobom starszym </label>         
                     </div>
 
-                    <div>
-                        <div className="specific">
-                            <label htmlFor="LokalizationSpecific">{`Wpisz nazwę konkretnej organizacji(opcjonalne)`}</label>
-                            <input type="text" name="localizationSpecific" id="lokalizationSpecific"  onChange={(e) => setLocalization(e.target.value)}/>
-                        </div>
+                    <div className="specific">
+                        <label 
+                            className="specific__label" 
+                            htmlFor="LokalizationSpecific"
+                        >
+                            {`Wpisz nazwę konkretnej organizacji(opcjonalne)`}
+                        </label>
+                        <input
+                            className="specific__input" 
+                            type="text" 
+                            name="localizationSpecific" 
+                            id="lokalizationSpecific"  
+                            onChange={(e) => setLocalization(e.target.value)}
+                        />
                     </div>
+                    
                             
                 </form>
             </div>

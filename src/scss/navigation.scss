@@ -5,9 +5,13 @@
     position: absolute;
     top: 46px;
     right: 0;
+    &__user {
+        margin-right: 20px;
+    }
     &__log {
         display: flex;
         justify-content: flex-end;
+        align-items: center;
         margin-right: 18px;
     }
     &__menu { 

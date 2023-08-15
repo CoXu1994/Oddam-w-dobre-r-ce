@@ -23,7 +23,7 @@ function Navigation() {
                     </>
                 ): (
                     <>
-                        <div className="nav__user">Witaj! :{currentUser.email}</div>
+                        <div className="nav__user"> Cześć {currentUser.email}! </div>
                         <Link to= "/oddaj-rzeczy" >
                             <button className= "btn__login"> Oddaj rzeczy </button>
                         </Link>
