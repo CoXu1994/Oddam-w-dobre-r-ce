@@ -69,9 +69,19 @@
         margin-bottom: 30px;
     }
 }
-.main__btn.form__btn {
-    margin-left: 295px;
-} 
+
+.message {
+    width: 250px;
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: -30px;
+    color: green;
+    font-size: 18px;
+    font-weight: 600;
+    & + form {
+        margin-bottom: -35px;
+    }
+}
 
 .footer {
     width: 1440px;

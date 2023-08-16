@@ -37,3 +37,56 @@ body {
     padding: 0;
     align-self: flex-start;
 }
+
+.btn {
+    &__login {
+        padding: 7px 8px;
+        font-size: 14px;
+        color: $color-log;
+        background-color: transparent;
+        border: 0.75px solid transparent;
+        &:first-child {
+            margin-right: 30px;
+        }
+        &:hover {
+            border-color: $bgc-bar;
+            cursor: pointer;
+
+        }
+    }
+    &__main {
+        padding: 13px 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+        border: 0.75px solid transparent;
+        &:hover {
+            border-color: $color-base;
+            cursor: pointer;
+        }
+        &.form__btn {
+            margin-left: 295px;
+        } 
+        
+    }
+    &__text {
+        font-weight: 300;
+        display: block;
+        width:170px;
+        text-align: center;
+        font-size: 28px;
+        line-height: 34px;
+        color: $color-base;
+        &.small {
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 18px;  
+        }
+        
+    }
+    &__small.small {
+        padding: 0;
+        padding: 23px 5px;
+    }
+}

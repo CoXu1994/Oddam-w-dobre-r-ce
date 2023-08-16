@@ -5,7 +5,6 @@ function Part1({setType}) {
             <h2 className="giveAway__form__title">Zaznacz co chcesz oddać :</h2>
 
             <form className="giveAway__form__box">
-
                     <label  className="giveAway__form__label custom" htmlFor="clothes__usable"> 
                         <input
                             className="checkbox" 

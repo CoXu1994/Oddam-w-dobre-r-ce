@@ -1,8 +1,10 @@
 import { useFormik } from "formik";
 import fb from "../assets/Facebook.svg";
 import insta from "../assets/Instagram.svg";
+import { useState } from "react";
 
 function HomeContact() {
+    const [status, setStatus] = useState();
     const validate = values => {
         const errors = {};
         if (!values.email) {
@@ -39,22 +41,23 @@ function HomeContact() {
         },
       });
 
-      async function sendForm(values) {
-        return await fetch("https://fer-api.coderslab.pl/v1/portfolio/contact", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(values),
+       async function sendForm(values) {
+          return await fetch("https://fer-api.coderslab.pl/v1/portfolio/contact", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(values) 
+          }).then((response) => setStatus(response.status))
           
-        })
-      }
-
+       }
+    
     return (
         <section className="contact" id="contact">
             <div className="contact__box">
                 <h2 className="contact__title">Skontaktuj się z nami</h2>
                 <img className="decoration" src="/src/assets/Decoration.svg" alt="decoration" />
+                {status === 200 && <div className="message"> Wiadomość została wysłana! Wkrótce się skontaktujemy. </div> }
                 <form 
                     className="form"
                     onSubmit={formik.handleSubmit}
@@ -115,7 +118,7 @@ function HomeContact() {
                         (<div className="error">{formik.errors.message}</div>) : null }
                     </div>
                     
-                    <button className="main__btn form__btn" type="submit">Wyślij</button>
+                    <button className="btn__main form__btn" type="submit">Wyślij</button>
                 </form>
             </div>
             <div className="footer">

@@ -320,8 +320,10 @@
     }
     &__text {
         font-size: 18px;
-        display: block;
-        margin-top: 20px;
+        display: inline-block;
+        line-height: 34px;
+        margin-top: 10px;
+        width: 700px;
         &.key {
             width: 90px;
         }
@@ -333,7 +335,7 @@
         }  
     }
     &__group {
-        margin-bottom: 40px;
+        margin-bottom: 10px;
         & > .summary__text::before {
             content: "";
             display: inline-block;
@@ -423,7 +425,7 @@
 }
 
 select {
-    background-color: transparent;
+    background-color: $bgc-gray;
     appearance: none;
     width: 200px;
     height: 30px;
@@ -436,6 +438,7 @@ select {
     &:focus {
         background-image: url("../assets/Icon-Arrow-Up.svg");
     }
+    
 }
 option.default {
      display: none;

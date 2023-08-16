@@ -156,11 +156,11 @@ function HomeWhoWeHelp() {
                         return (
                             <div key={id} className="item">
                                 <div className="item__left">
-                                    <span className="item__title">Zbiórka “{title}”</span>
-                                    <span className="item__description">{description}</span>
+                                    <span className="item__title"> Zbiórka “{title}” </span>
+                                    <span className="item__description"> {description} </span>
                                 </div>
                                 <div className="item__right">
-                                    <span className="item__list">{items.join(", ")}</span> 
+                                    <span className="item__list"> {items.join(", ")} </span> 
                                 </div>
                             </div>
                         )                           
@@ -170,26 +170,54 @@ function HomeWhoWeHelp() {
                 {arr?.length > 3 && (
                     <div className="pages">
                         {pages.map((page) => 
-                        <div className={currentPage == page ? "active" : "pages__page"} key={page} onClick={() => setCurrentPage(page)} > {page} </div> )}
+                            <div 
+                                className={currentPage == page ? "active" : "pages__page"} 
+                                key={page} 
+                                onClick={() => setCurrentPage(page)} 
+                            > 
+                                {page} 
+                            </div> 
+                        )}
                     </div>
-                    )}
-                    
-                </div>
-            )
-        }
+                    )}        
+            </div>
+        )
+    }
     
     function handleArrayChange(type) {
         setType(type);
         setCurrentPage(1);
     }
+
     return (
         <section className="whoWeHelp" id="help">
-            <h2 className="whoWeHelp__title">Komu pomagamy?</h2>
+            <h2 className="whoWeHelp__title"> Komu pomagamy? </h2>
             <img className="decoration" src={decoration} alt="decoration" />
             <div className="whoWeHelp__buttons">
-                <button className="main__btn small" onClick={() => handleArrayChange("fundations")}><span className="btn__text small">Fundacjom</span></button>
-                <button className="main__btn small" onClick={() => handleArrayChange("organizations")}><span className="btn__text small">Organizacjom<br/> pozarządowym</span></button>
-                <button className="main__btn small" onClick={() => handleArrayChange("local")}><span className="btn__text small">Lokalnym<br/>zbiórkom</span></button>
+                <button 
+                    className="btn__main small" 
+                    onClick={() => handleArrayChange("fundations")}
+                >
+                    <span className="btn__text small"> Fundacjom </span>
+                </button>
+                <button 
+                    className="btn__main small" 
+                    onClick={() => handleArrayChange("organizations")}
+                >
+                    <div className="small__box">
+                        <span className="btn__text small"> Organizacjom </span>
+                        <span className="btn__text small"> pozarządowym </span>
+                    </div>
+                </button>
+                <button 
+                    className="btn__main small" 
+                    onClick={() => handleArrayChange("local")}
+                >   
+                    <div>
+                        <span className="btn__text small"> Lokalnym </span>
+                        <span className="btn__text small"> zbiórkom </span>
+                    </div>
+                </button>
             </div>
             {listItemTemplate(type)}
            

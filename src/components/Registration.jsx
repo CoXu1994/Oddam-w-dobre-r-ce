@@ -11,33 +11,31 @@ function Registration() {
     const validate = values => {
         const errors = {};
         if (!values.email) {
-          errors.email = '*pole musi być wypełnione';
+            errors.email = '*pole musi być wypełnione';
         } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-          errors.email = 'Niepoprawny adress email';
+            errors.email = 'Niepoprawny adress email';
         }
       
         if (!values.password) {
-          errors.password = '*pole musi być wypełnione';
+            errors.password = '*pole musi być wypełnione';
         } else if (values.password.length < 6) {
-          errors.password = 'Hasło musi posiadać minimum 6 znaków';
+            errors.password = 'Hasło musi posiadać minimum 6 znaków';
         }
       
         if (!values.passwordConfirm) {
-          errors.passwordConfirm = 'pole musi być wypełnione';
+            errors.passwordConfirm = 'pole musi być wypełnione';
         } else if (values.password !== values.passwordConfirm) {
-            
             errors.passwordConfirm = "Hasła nie są takie same"
         }
 
-      
         return errors;
     };
 
     const formik = useFormik({
         initialValues: {
-          email: '',
-          password: '',
-          passwordConfirm: '',
+            email: '',
+            password: '',
+            passwordConfirm: '',
         },
         validate,
         onSubmit: values => {
@@ -45,8 +43,7 @@ function Registration() {
             createUser( values.email, values.password)
             .then(() => {
                 logIn( values.email, values.password)
-                    .then((userCredential) => {
-                        console.log(userCredential);
+                    .then(() => {
                         navigate("/");
                     })
                     .catch((error) => {
@@ -61,13 +58,13 @@ function Registration() {
                 console.log(errorCode, errorMessage);
             });
         },
-      });
+    });
     
     return(
         <div className="container">
             <Navigation />
             <section className="log">
-                <h2 className="log__title">Załóż konto</h2>
+                <h2 className="log__title"> Załóż konto </h2>
                 <img className="decoration" src="/src/assets/Decoration.svg" alt="decoration" />
                 <form 
                     className="form"
@@ -127,9 +124,9 @@ function Registration() {
                     </div>
                     <div className="log__options">
                         <Link className="link" to="/logowanie" >
-                            <button className="main__btn" >Zaloguj się</button>
+                            <button className="btn__main" > Zaloguj się </button>
                         </Link>
-                        <button className="main__btn" type="submit" >Załóż konto</button>
+                        <button className="btn__main" type="submit" > Załóż konto </button>
                     </div>
                 </form>
                 

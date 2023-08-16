@@ -73,6 +73,7 @@
     margin-top: 63px;
     display: flex;
     justify-content: center;
+    gap: 1px;
     font-size: 18px;
     &__page {
         padding: 13px 15px;
@@ -84,13 +85,3 @@
 }
 
 
-.btn__text.small {
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 18px;  
-}
-
-.main__btn.small {
-    padding: 0;
-    padding: 23px 5px;
-}

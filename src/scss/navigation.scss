@@ -34,18 +34,3 @@
     }
 }
 
-.btn__login {
-    padding: 7px 8px;
-    font-size: 14px;
-    color: $color-log;
-    background-color: transparent;
-    border: 0.75px solid transparent;
-    &:first-child {
-        margin-right: 30px;
-    }
-    &:hover {
-        border-color: $bgc-bar;
-        cursor: pointer;
-
-    }
-}

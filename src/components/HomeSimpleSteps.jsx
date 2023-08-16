@@ -19,11 +19,8 @@ function HomeSimpleSteps() {
                 <div className="step__box">
                     <img className="step__image" src={icon_2} alt="icon"/>
                     <span className="step__title"> Spakuj się </span>
-                    <span className="step__text"> 
-                        skorzystaj z 
-                        <br></br> 
-                        worków na śmieci 
-                    </span>
+                    <span className="step__text"> skorzystaj z </span>
+                    <span className="step__text"> worków na śmieci </span>
                 </div> 
                 <div className="step__box">
                     <img className="step__image" src={icon_3} alt="icon"/>
@@ -33,15 +30,12 @@ function HomeSimpleSteps() {
                 <div className="step__box">
                     <img className="step__image" src={icon_4} alt="icon"/>
                     <span className="step__title"> Zamów kuriera </span>
-                    <span className="step__text"> 
-                        kurier przyjedzie 
-                        <br></br>
-                         w dowolnym terminie 
-                    </span>
+                    <span className="step__text"> kurier przyjedzie </span>
+                    <span className="step__text"> w dowolnym terminie  </span>  
                 </div> 
             </div>
             <Link className="link" to="/logowanie">
-                <button className="main__btn">
+                <button className="btn__main">
                     <span className="btn__text"> ODDAJ RZECZY </span>
                 </button>
             </Link>

@@ -1,7 +1,5 @@
 @import "./settings/colors";
 
-
-
 .main {
     width: 1440px;
     display: flex;
@@ -23,33 +21,13 @@
         align-items: center;
         margin-right: 130px;
     }
-    &__btn {
-        padding: 13px 25px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: transparent;
-        border: 0.75px solid transparent;
-        &:hover {
-            border-color: $color-base;
-            cursor: pointer;
-        }
-
-        & .btn__text {
-            font-weight: 300;
-            display: block;
-            width:170px;
-            text-align: center;
-            font-size: 28px;
-            line-height: 34px;
-            color: $color-base;
-        }
-    }
 }
 
 .box {
     &__title {
         margin-top:60px;
+        display: flex;
+        flex-direction: column;
         text-align: center;
         font-size: 30px;
         margin-bottom: 15px;
