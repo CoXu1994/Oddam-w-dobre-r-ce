@@ -47,26 +47,26 @@ function GiveAwayThings() {
                         <div className="giveAway__steps">
                             <div className="giveAway__step">
                                 <div className="giveAway__box">
-                                    <span className="giveAway__number">1</span>
-                                    <span className="giveAway__text">Wybierz rzeczy</span>
+                                    <span className="giveAway__number"> 1 </span>
+                                    <span className="giveAway__text"> Wybierz rzeczy </span>
                                 </div>
                             </div>
                             <div className="giveAway__step">
                                 <div className="giveAway__box">
-                                    <span className="giveAway__number">2</span>
-                                    <span className="giveAway__text">Spakuj je w worki</span>
+                                    <span className="giveAway__number"> 2 </span>
+                                    <span className="giveAway__text"> Spakuj je w worki </span>
                                 </div>
                             </div>
                             <div className="giveAway__step">
                                 <div className="giveAway__box">
-                                    <span className="giveAway__number">3</span>
-                                    <span className="giveAway__text">Wybierz fundacje</span>
+                                    <span className="giveAway__number"> 3 </span>
+                                    <span className="giveAway__text"> Wybierz fundacje </span>
                                 </div>
                             </div>
                             <div className="giveAway__step">
                                 <div className="giveAway__box">
-                                    <span className="giveAway__number">4</span>
-                                    <span className="giveAway__text">Zamów kuriera</span>
+                                    <span className="giveAway__number"> 4 </span>
+                                    <span className="giveAway__text"> Zamów kuriera </span>
                                 </div>
                             </div> 
                         </div>
@@ -75,7 +75,7 @@ function GiveAwayThings() {
                 {currentPage < 4 && (
                     <section className="orangeBar">
                         <div className="orangeBar__content">
-                            <span className="orangeBar__title">Ważne</span>
+                            <span className="orangeBar__title"> Ważne </span>
                             <p className="orangeBar__text">
                                 {currentPage == 1 && 
                                 "Uzupełnij szczegóły dotyczące Twoich rzeczy. Dzięki temu będziemy wiedzieć komu najlepiej je przekazać."}
@@ -91,9 +91,15 @@ function GiveAwayThings() {
                 )}
 
                 <section className="giveAway__form">
-                    { currentPage == 1 && <Part1 setType={setType}/> }
-                    { currentPage == 2 && <Part2 setBags={setBags}/> }
-                    { currentPage == 3 && <Part3 setLocalization={setLocalization} setHelpGroups={setHelpGroups}/> }
+                    { currentPage == 1 && <Part1 setType={setType} type={type}/> }
+                    { currentPage == 2 && <Part2 setBags={setBags} bags={bags}/> }
+                    { currentPage == 3 && 
+                        <Part3 
+                            setLocalization={setLocalization} 
+                            setHelpGroups={setHelpGroups}
+                            localization={localization}
+                            helpGroups={helpGroups}
+                        /> }
                     { currentPage == 4 && 
                         <Part4 
                             setStreet={setStreet}
@@ -103,6 +109,13 @@ function GiveAwayThings() {
                             setDate={setDate}
                             setTime={setTime}
                             setNote={setNote}
+                            street={street}
+                            city={city}
+                            postCode={postCode}
+                            phone={phone}
+                            date={date}
+                            time={time}
+                            note={note}
                         /> }
                     { currentPage == 5 && 
                         <Part5_Summary 
@@ -122,9 +135,12 @@ function GiveAwayThings() {
                     
 
                     <div className="giveAway__form__btns">
-                        {currentPage > 1 && currentPage < 6 && <button className="giveAway__form__btn" onClick ={() => changePage("prev")}>Wstecz</button>}
-                        {currentPage < 5 && <button className="giveAway__form__btn" onClick ={() => changePage("next")}>Dalej</button>}
-                        {currentPage == 5 && <button className="giveAway__form__btn"onClick ={() => changePage("next")}>Potwierdzam</button>}
+                        {currentPage > 1 && currentPage < 6 && 
+                            <button className="giveAway__form__btn" onClick ={() => changePage("prev")}> Wstecz </button>}
+                        {currentPage < 5 && 
+                            <button className="giveAway__form__btn" onClick ={() => changePage("next")}> Dalej </button>}
+                        {currentPage == 5 && 
+                            <button className="giveAway__form__btn"onClick ={() => changePage("next")}> Potwierdzam </button>}
                     </div>
 
                 </section>

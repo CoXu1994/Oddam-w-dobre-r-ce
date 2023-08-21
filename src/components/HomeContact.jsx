@@ -36,7 +36,6 @@ function HomeContact() {
         },
         validate,
         onSubmit: values => {
-            alert(JSON.stringify(values, null, 2));
             sendForm(values);
         },
       });
@@ -55,7 +54,7 @@ function HomeContact() {
     return (
         <section className="contact" id="contact">
             <div className="contact__box">
-                <h2 className="contact__title">Skontaktuj się z nami</h2>
+                <h2 className="contact__title"> Skontaktuj się z nami </h2>
                 <img className="decoration" src="/src/assets/Decoration.svg" alt="decoration" />
                 {status === 200 && <div className="message"> Wiadomość została wysłana! Wkrótce się skontaktujemy. </div> }
                 <form 
@@ -64,7 +63,7 @@ function HomeContact() {
                 >
                     <div className="form__group">
                         <div className="form__box">
-                            <label className="form__label" htmlFor="name">Wpisz swoje imię</label>
+                            <label className="form__label" htmlFor="name"> Wpisz swoje imię </label>
                             <input 
                                 className="form__input" 
                                 type="text" 
@@ -82,7 +81,7 @@ function HomeContact() {
                         </div>
                        
                         <div className="form__box">
-                            <label className="form__label" htmlFor="email">Wpisz swoje email</label>
+                            <label className="form__label" htmlFor="email"> Wpisz swoje email </label>
                             <input 
                                 className="form__input" 
                                 type="email" 
@@ -100,7 +99,7 @@ function HomeContact() {
                         
                     </div>
                     <div className="form__box">
-                        <label className="form__label" htmlFor="message">Wpisz swoją wiadomość</label>
+                        <label className="form__label" htmlFor="message"> Wpisz swoją wiadomość </label>
                         <textarea 
                             className="form__message"
                             id="message" 
@@ -118,14 +117,18 @@ function HomeContact() {
                         (<div className="error">{formik.errors.message}</div>) : null }
                     </div>
                     
-                    <button className="btn__main form__btn" type="submit">Wyślij</button>
+                    <button className="btn__main form__btn" type="submit"> Wyślij </button>
                 </form>
             </div>
             <div className="footer">
-                <span className="footer__copyrights">Copyright by Coders Lab</span>
+                <span className="footer__copyrights"> Copyright by Coders Lab </span>
                 <div className="footer__social">
-                    <img className="fb" src={fb} alt="facebook" />
-                    <img className="insta" src={insta} alt="instagram" />
+                    <a href="https://www.facebook.com">
+                      <img className="fb" src={fb} alt="facebook" />
+                    </a>
+                    <a href="https://www.instagram.com">
+                      <img className="insta" src={insta} alt="instagram" />
+                    </a>
                 </div>
             </div>
         </section>

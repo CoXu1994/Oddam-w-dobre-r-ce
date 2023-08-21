@@ -107,19 +107,19 @@ function HomeWhoWeHelp() {
     const local = [
         {
             id: 1,
-            title: "Lorem Ipsum 1",
+            title: "Ipsum 1",
             description: "Quis varius quam quisque id diam vel quam elementum pulvinar.",
             items: ["Egestas", "sed", "tempus"]
         },
         {
             id: 2,
-            title: "Lorem Ipsum 2",
+            title: "Ipsum 2",
             description: "Hendrerit gravida rutrum quisque non tellus orci ac auctor augue.",
             items: ["Ut", "aliquam", "purus", "sit", "amet"]
         },
         {
             id: 3,
-            title: "Lorem Ipsum 3",
+            title: "Ipsum 3",
             description: "Scelerisque in dictum non consectetur a erat nam.",
             items: ["Mi", "quis", "hendrerit", "dolor"]
         },

@@ -2,6 +2,7 @@ import Navigation from './Navigation';
 import { Link, useNavigate } from 'react-router-dom';
 import { useFormik } from "formik";
 import { useAuth } from '../context/AuthContext';
+import decoration from "../assets/Decoration.svg";
 
 function Registration() {
 
@@ -65,14 +66,14 @@ function Registration() {
             <Navigation />
             <section className="log">
                 <h2 className="log__title"> Załóż konto </h2>
-                <img className="decoration" src="/src/assets/Decoration.svg" alt="decoration" />
+                <img className="decoration" src={decoration} alt="decoration" />
                 <form 
                     className="form"
                     onSubmit={formik.handleSubmit}       
                 >
                     <div className='log__form'>
                         <div className="form__box">
-                            <label className="form__label" htmlFor="email">Email</label>
+                            <label className="form__label" htmlFor="email"> Email </label>
                             <input 
                                 className="form__input" 
                                 type="email" 
@@ -89,7 +90,7 @@ function Registration() {
                             (<div className="error">{formik.errors.email}</div>) : null }
 
                         <div className="form__box">
-                            <label className="form__label" htmlFor="password">Hasło</label>
+                            <label className="form__label" htmlFor="password"> Hasło </label>
                             <input 
                                 className="form__input" 
                                 type="password" 
@@ -106,7 +107,7 @@ function Registration() {
                             (<div className="error" >{formik.errors.password}</div>) : null }
 
                         <div className="form__box">
-                            <label className="form__label" htmlFor="passwordConfirm">Powtórz Hasło</label>
+                            <label className="form__label" htmlFor="passwordConfirm"> Powtórz Hasło </label>
                             <input 
                                 className="form__input" 
                                 type="password" 

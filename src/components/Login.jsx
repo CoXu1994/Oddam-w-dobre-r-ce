@@ -32,7 +32,6 @@ function LogIn() {
     },
     validate,
     onSubmit: values => {
-      alert(JSON.stringify(values, null, 2));
       signIn(values.email, values.password)
         .then(() => {
           navigate("/")

@@ -1,8 +1,8 @@
-function Part1({setType}) {
+function Part1({setType, type}) {
     return (
         <div className="giveAway__form__content">
-            <span className="giveAway__form__steps">Krok 1/4</span>
-            <h2 className="giveAway__form__title">Zaznacz co chcesz oddać :</h2>
+            <span className="giveAway__form__steps"> Krok 1/4 </span>
+            <h2 className="giveAway__form__title"> Zaznacz co chcesz oddać : </h2>
 
             <form className="giveAway__form__box">
                     <label  className="giveAway__form__label custom" htmlFor="clothes__usable"> 
@@ -11,8 +11,9 @@ function Part1({setType}) {
                             type="radio" 
                             id="clothes__usable" 
                             name="things"
-                            value="Ubrania w dobrym stanie" 
-                            onClick={(e) => setType(e.target.value)}
+                            value="ubrania w dobrym stanie" 
+                            onChange={(e) => setType(e.target.value)}
+                            checked={type === "ubrania w dobrym stanie" ? true : false}
                         />
                         <span className="checkbox__custom"/>
                         ubrania, które nadają się do ponownego użycia
@@ -24,8 +25,9 @@ function Part1({setType}) {
                             type="radio" 
                             id="clothes__throwAway" 
                             name="things" 
-                            value="Ubrania w złym stanie" 
-                            onClick={(e) => setType(e.target.value)}
+                            value="ubrania w złym stanie" 
+                            onChange={(e) => setType(e.target.value)}
+                            checked={type === "ubrania w złym stanie"  ? true : false}
                         />
                         <span className="checkbox__custom"/>
                         ubrania, do wyrzucenia
@@ -38,7 +40,8 @@ function Part1({setType}) {
                             id="toys" 
                             name="things" 
                             value="zabawki" 
-                            onClick={(e) => setType(e.target.value)}
+                            onChange={(e) => setType(e.target.value)}  
+                            checked={type === "zabawki"  ? true : false}
                         />
                         <span className="checkbox__custom"/>
                         zabawki
@@ -51,7 +54,8 @@ function Part1({setType}) {
                             id="books" 
                             name="things" 
                             value="książki"
-                            onClick={(e) => setType(e.target.value)}
+                            onChange={(e) => setType(e.target.value)}
+                            checked={type === "książki"  ? true : false}
                         />
                         <span className="checkbox__custom"/>
                         książki
@@ -64,7 +68,8 @@ function Part1({setType}) {
                             id="other" 
                             name="things"
                             value="inne" 
-                            onClick={(e) => setType(e.target.value)}
+                            onChange={(e) => setType(e.target.value)}
+                            checked={type === "inne"  ? true : false}
                         />
                         <span className="checkbox__custom" />
                         inne

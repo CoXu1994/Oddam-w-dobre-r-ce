@@ -7,8 +7,8 @@ function HomeMainSection() {
             <div className="main__image"></div>
             <div className="main__box">
                 <h2 className="box__title">
-                    <span>Zacznij pomagać!</span>
-                    <span>Oddaj niechciane rzeczy w zaufane ręce</span>
+                    <span> Zacznij pomagać! </span>
+                    <span> Oddaj niechciane rzeczy w zaufane ręce </span>
                 </h2>
                 <img className="decoration" src={decoration} alt="decoration" />
                 <div className="box__buttons">
