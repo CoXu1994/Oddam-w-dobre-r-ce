@@ -2,6 +2,7 @@ import { useFormik } from "formik";
 import fb from "../assets/Facebook.svg";
 import insta from "../assets/Instagram.svg";
 import { useState } from "react";
+import decoration from "../assets/Decoration.svg"
 
 function HomeContact() {
     const [status, setStatus] = useState();
@@ -55,7 +56,7 @@ function HomeContact() {
         <section className="contact" id="contact">
             <div className="contact__box">
                 <h2 className="contact__title"> Skontaktuj się z nami </h2>
-                <img className="decoration" src="/src/assets/Decoration.svg" alt="decoration" />
+                <img className="decoration" src={decoration} alt="decoration" />
                 {status === 200 && <div className="message"> Wiadomość została wysłana! Wkrótce się skontaktujemy. </div> }
                 <form 
                     className="form"
