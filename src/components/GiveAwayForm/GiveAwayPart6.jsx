@@ -1,4 +1,4 @@
-import decoration from "../../assets/Decoration.svg";
+import decoration from "../assets/Decoration.svg";
 
 
 function Part6() {
