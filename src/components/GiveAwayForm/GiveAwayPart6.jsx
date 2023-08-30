@@ -1,7 +1,7 @@
+import decoration from "../../assets/Decoration.svg"; 
 
 
-
-function Part6({decoration}) {
+function Part6() {
     return (
         <div className="giveAway__finish">
             <span className="finish__text"> Dziękujemy za przesłanie formularza </span>

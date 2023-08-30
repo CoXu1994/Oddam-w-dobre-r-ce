@@ -131,7 +131,7 @@ function GiveAwayThings() {
                             time = { time }
                             note = { note }
                         />}
-                    { currentPage == 6 && <Part6 decoration={decoration}/>}
+                    { currentPage == 6 && <Part6 />}
                     
 
                     <div className="giveAway__form__btns">
